@@ -34,7 +34,7 @@ RUN mkdir -p /usr/share/icons/hicolor && \
         gvfs-bin \
         xdg-utils \
         apt-transport-https \
-        python-minimal \
+        python \
 	wget \
 	--no-install-recommends && \
 	dpkg -i '/src/slack-desktop-1.2.6-amd64.deb' && \
