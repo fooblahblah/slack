@@ -13,7 +13,7 @@
 FROM ubuntu:15.10
 MAINTAINER Jeff Simpson <jeff@syncrodoka.net>
 
-ADD https://slack-ssb-updates.global.ssl.fastly.net/linux_releases/slack-desktop-1.2.6-amd64.deb /src/slack-desktop-1.2.6-amd64.deb
+ADD https://slack-ssb-updates.global.ssl.fastly.net/linux_releases/slack-desktop-2.0.1-amd64.deb /src/slack-desktop-2.0.1-amd64.deb
 
 # Install Slack
 RUN mkdir -p /usr/share/icons/hicolor && \
@@ -37,12 +37,11 @@ RUN mkdir -p /usr/share/icons/hicolor && \
         python \
 	wget \
 	--no-install-recommends && \
-	dpkg -i '/src/slack-desktop-1.2.6-amd64.deb' && \
+	dpkg -i '/src/slack-desktop-2.0.1-amd64.deb' && \
 	rm -rf /var/lib/apt/lists/* && \
 	rm -rf /src/*.deb
 
 COPY local.conf /etc/fonts/local.conf
 
-# Autorun chrome
 ENTRYPOINT [ "/usr/bin/slack" ]
 CMD [ "--user-data-dir=/data" ]
